@@ -1,0 +1,4 @@
+subject     Subjects that participated in the experiment
+activity    The name of the activity
+measure     Description of the measurement
+mean        Mean value of the measurement

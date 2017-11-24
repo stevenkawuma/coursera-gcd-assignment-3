@@ -45,11 +45,11 @@ combined_set <- rbind(training_set, test_set) %>%
     mutate(activity = activity_labels$label[activity]) 
 
 # Extract measurements for mean and std into new dataset
-mean_std_measures <- combined_set %>%  select(subject, activity, matches("mean|std")) 
+mean_std_measures <- combined_set %>%  dplyr::select(subject, activity, matches("mean|std")) 
 
 # Create new dataset with averages of each variable
-averages <- mean_std_measures %>% group_by(subject, activity) %>% 
-  summarize_all(funs(mean))
+averages <- mean_std_measures %>% dplyr::group_by(subject, activity) %>% 
+  dplyr::summarize_all(funs(mean))
 
 # Create tidy dataset of averages
 tidy_means <- averages %>% gather(measure, mean, -subject, -activity)
